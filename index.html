@@ -200,9 +200,9 @@ body{overflow-x:clip}
 <script>
 (function () {
   var projects = [
-    { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed [[Micro-Frontends|micro-frontend]] applications with [[React]], [[TypeScript]] and [[Module Federation]] for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation', 'Micro-Frontends'] },
-    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on [[Node.js]] and [[Nest.js (BFF)|Nest.js]] that aggregate microservice APIs, and optimized data fetching on the client with [[TanStack Query]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
-    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and visual screenshot testing. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
+    { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed [[Micro-Frontends|micro-frontend]] applications with [[React]], [[TypeScript]] and [[Module Federation]] for complex cybersecurity dashboards.', also: 'Also used here: [[Nx Monorepo]], [[Rspack]], [[Webpack]], [[Zustand]], [[TanStack Table]] and [[Tailwind CSS]].', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation', 'Micro-Frontends'] },
+    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on [[Node.js]] and [[Nest.js (BFF)|Nest.js]] that aggregate microservice [[REST APIs|APIs]], and optimized data fetching on the client with [[TanStack Query]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
+    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and visual screenshot testing. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them.', also: 'Also used here: [[Jest]], [[Cypress]], [[Rstest]] and [[MSW]].', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
     { job: 2, title: 'JavaScript to strict TypeScript', name: 'Bancor: JavaScript to strict TypeScript', problem: 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'JavaScript (ES6+)', 'Design systems'] },
     { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
@@ -260,7 +260,10 @@ body{overflow-x:clip}
     'TanStack Query': { j: 0, c: 1 }, 'Node.js': { j: 0, c: 1 }, 'Nest.js (BFF)': { j: 0, c: 1 },
     'Storybook': { j: 0, c: 2 }, 'Storybook interaction tests': { j: 0, c: 2 }, 'Playwright': { j: 0, c: 2 }, 'CI/CD': { j: 0, c: 2 },
     'TypeScript': { j: 2 }, 'JavaScript (ES6+)': { j: 2 }, 'Design systems': { j: 2 },
-    'Redux Toolkit': { j: 1 }, 'Material UI': { j: 1 }
+    'Redux Toolkit': { j: 1 }, 'Material UI': { j: 1 },
+    'Nx Monorepo': { j: 0, c: 0 }, 'Rspack': { j: 0, c: 0 }, 'Webpack': { j: 0, c: 0 }, 'Zustand': { j: 0, c: 0 }, 'TanStack Table': { j: 0, c: 0 }, 'Tailwind CSS': { j: 0, c: 0 },
+    'REST APIs': { j: 0, c: 1 },
+    'Jest': { j: 0, c: 2 }, 'Cypress': { j: 0, c: 2 }, 'Rstest': { j: 0, c: 2 }, 'MSW': { j: 0, c: 2 }
   };
   // Where each skill was used, taken from the CV.
   var WHERE = {
@@ -278,7 +281,18 @@ body{overflow-x:clip}
     'Playwright': 'XM Cyber, testing and quality',
     'CI/CD': 'XM Cyber, AI-assisted CI/CD tooling',
     'Redux Toolkit': 'Foretellix',
-    'Material UI': 'Foretellix'
+    'Material UI': 'Foretellix',
+    'Nx Monorepo': 'XM Cyber, CSPM micro-frontends',
+    'Rspack': 'XM Cyber, CSPM micro-frontends',
+    'Webpack': 'XM Cyber, CSPM micro-frontends',
+    'Zustand': 'XM Cyber, CSPM micro-frontends',
+    'TanStack Table': 'XM Cyber, CSPM dashboards',
+    'Tailwind CSS': 'XM Cyber, CSPM micro-frontends',
+    'REST APIs': 'XM Cyber, Nest.js BFF layer',
+    'Jest': 'XM Cyber, testing and quality',
+    'Cypress': 'XM Cyber, testing and quality',
+    'Rstest': 'XM Cyber, testing and quality',
+    'MSW': 'XM Cyber, testing and quality'
   };
   var pending = null;
   function goTo(tg, skill) {
@@ -369,7 +383,9 @@ body{overflow-x:clip}
         var d = el('details', 'case'), sm = el('summary', null, p.title);
         sm.addEventListener('click', function (ev) { ev.preventDefault(); setCase(d, !(d._want != null ? d._want : d.open)); });
         d.appendChild(sm);
-        var inn = el('div', 'in'), pp = el('p'); pp.appendChild(rich(p.problem)); inn.appendChild(pp); inn.appendChild(resultLine(p));
+        var inn = el('div', 'in'), pp = el('p'); pp.appendChild(rich(p.problem)); inn.appendChild(pp);
+        if (p.also) { var al = el('p'); al.appendChild(rich(p.also)); inn.appendChild(al); }
+        inn.appendChild(resultLine(p));
         d.appendChild(inn); wrap.appendChild(d);
       });
       b.appendChild(wrap);
