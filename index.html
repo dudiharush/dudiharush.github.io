@@ -37,6 +37,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .fx{position:fixed;inset:0;pointer-events:none;z-index:0;--mx:50%;--my:45%}
 .fx div{position:absolute;inset:0;pointer-events:none}
+.fx .dots,.fx .glow{opacity:0;transition:opacity .35s ease}
+.fx.on .dots,.fx.on .glow{opacity:1}
+.fx.on.dim .dots{opacity:.2}
+.fx.on.dim .glow{opacity:.28}
 main{position:relative;z-index:1}
 .fx .grid{background-image:linear-gradient(#1A1E1B 1px,transparent 1px),linear-gradient(90deg,#1A1E1B 1px,transparent 1px);background-size:96px 96px;background-position:center top;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%)}
 .fx .dots{background-image:radial-gradient(var(--accent) 1.6px,transparent 1.8px);background-size:22px 22px;-webkit-mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%);mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%)}
@@ -367,12 +371,16 @@ body{overflow-x:clip}
   route();
 
   var fx = document.getElementById('fx');
+  // Over text, cards and controls the glow is dimmed so reading stays easy.
+  var DIM_SEL = 'a, button, summary, p, h1, h2, h3, nav, .badge, .strip, .group, .case, .job';
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('mousemove', function (e) {
+      fx.classList.add('on');
+      fx.classList.toggle('dim', !!(e.target.closest && e.target.closest(DIM_SEL)));
       fx.style.setProperty('--mx', Math.round(e.clientX) + 'px');
       fx.style.setProperty('--my', Math.round(e.clientY) + 'px');
     });
-    document.documentElement.addEventListener('mouseleave', function () { fx.style.removeProperty('--mx'); fx.style.removeProperty('--my'); });
+    document.documentElement.addEventListener('mouseleave', function () { fx.classList.remove('on'); });
   }
 })();
 </script>
