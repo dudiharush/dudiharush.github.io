@@ -48,35 +48,49 @@ h1 span{color:var(--accent);display:block}
 .lead{font-size:19px;line-height:1.6;color:var(--muted);max-width:620px}
 .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding-top:6px}
 .strip{position:relative;max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;border:1px solid var(--line);border-bottom:0;background:var(--bg)}
-.strip div{flex:1 1 130px;padding:26px 12px;text-align:center;font-weight:500;font-size:17px;color:#C9CEC9;border-right:1px solid var(--line)}
-.strip .lbl{flex:0 0 200px;padding:26px 24px;font-size:14px;line-height:1.4;color:var(--muted);text-align:left;display:flex;align-items:center}
+.strip a{flex:1 1 130px;padding:26px 12px;text-align:center;font-weight:500;font-size:17px;color:#C9CEC9;text-decoration:none;border-right:1px solid var(--line);transition:background .15s,color .15s}
+.strip a:hover,.strip a:focus-visible{background:#10200F;color:var(--accent)}
+.strip .lbl{flex:0 0 200px;padding:26px 24px;font-size:14px;line-height:1.4;color:var(--muted);text-align:left;display:flex;align-items:center;border-right:1px solid var(--line)}
 .strip .lbl b{color:var(--accent);font-weight:400;margin-left:.3em}
 section.block{padding:72px 0 104px}
 section.alt{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .label{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim);letter-spacing:.04em;margin-bottom:20px}
 .label b{color:var(--accent);font-weight:500}
 h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.02em;max-width:560px;margin-bottom:48px}
-.work{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:flex-start}
-.tabs{flex:0 1 300px;display:flex;flex-direction:column;gap:6px}
-.tabs button{font:inherit;font-size:16px;text-align:left;cursor:pointer;border-radius:999px;padding:12px 20px;border:1px solid transparent;background:transparent;color:var(--muted)}
-.tabs button[aria-selected=true]{border-color:#2A2E2B;background:#171A18;color:var(--text)}
-.panel{flex:1 1 420px;min-width:0;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:20px}
-.panel .shot{height:150px;border-radius:10px;border:1px solid var(--line);background-color:var(--bg);background-image:radial-gradient(#2E332F 1.4px,transparent 1.6px);background-size:18px 18px;display:flex;align-items:center;justify-content:center;color:#8A908A;font-family:'JetBrains Mono',monospace;font-size:13px}
-.panel h3{font-weight:500;font-size:26px;letter-spacing:-.01em}
-.panel p{font-size:17px;line-height:1.6;color:var(--muted)}
-.panel p.res{color:var(--text)}.panel p.res b{color:var(--accent);font-weight:500}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
-.tags span{border:1px solid var(--line2);background:var(--chip);border-radius:999px;padding:5px 13px;font-size:13px;color:#C9CEC9}
+.tags span,.tags a{border:1px solid var(--line2);background:var(--chip);border-radius:999px;padding:5px 13px;font-size:13px;color:#C9CEC9;text-decoration:none;transition:border-color .15s,color .15s,background .15s}
+.tags a:hover,.tags a:focus-visible{border-color:var(--accent);color:var(--accent);background:#10200F}
+.case,.job{scroll-margin-top:90px}
+body{overflow-x:clip}
+.tip{position:relative}
+.tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,4px);width:max-content;max-width:min(260px,72vw);white-space:normal;text-align:left;background:#171A18;border:1px solid #2A2E2B;color:var(--text);font-size:13px;font-weight:500;line-height:1.4;padding:8px 12px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.tip:hover::after,.tip:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+@keyframes pflash{0%,45%{box-shadow:0 0 0 2px var(--accent),0 0 48px rgba(134,238,107,.28)}100%{box-shadow:0 0 0 2px transparent,0 0 0 rgba(134,238,107,0)}}
+@keyframes jflash{0%,45%{background:rgba(134,238,107,.12)}100%{background:transparent}}
+.case.flash{animation:pflash 2.4s ease}
+.job.flash{animation:jflash 2.4s ease}
+@media (prefers-reduced-motion:reduce){.case.flash{animation:none;box-shadow:0 0 0 2px var(--accent)}.job.flash{animation:none;background:rgba(134,238,107,.12)}}
 .groups{display:flex;flex-wrap:wrap;gap:16px}
 .group{flex:1 1 240px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
 .group h3{font-size:18px;font-weight:500}
-.group .tags span{font-size:14px;padding:6px 14px}
+.group .tags span,.group .tags a{font-size:14px;padding:6px 14px}
 .jobs{border-bottom:1px solid var(--line)}
 .job{display:flex;flex-wrap:wrap;gap:12px 48px;padding:30px 0;border-top:1px solid var(--line)}
 .job .d{flex:0 0 200px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim);padding-top:5px}
 .job .b{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:8px}
 .job h3{font-weight:500;font-size:22px;letter-spacing:-.01em}.job h3 span{color:var(--dim)}
 .job p{font-size:17px;line-height:1.6;color:var(--muted)}
+.job p.res{color:var(--text)}.job p.res b{color:var(--accent);font-weight:500}
+.inline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.cases{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.case{border:1px solid var(--line);background:var(--panel);border-radius:14px}
+.case summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:500;display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px}
+.case summary::-webkit-details-marker{display:none}
+.case summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:18px}
+.case[open] summary::after{content:"\2013"}
+.case summary:hover{color:var(--accent)}
+.case .in{padding:0 18px 18px;display:flex;flex-direction:column;gap:14px}
+.case .in p{font-size:16px}
 #contact{position:relative;overflow:hidden;border-top:1px solid var(--line)}
 #contact:before{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at 50% 100%,rgba(134,238,107,.14),rgba(134,238,107,0) 70%)}
 .contact-in{position:relative;max-width:800px;margin:0 auto;padding:120px 24px 72px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
@@ -91,7 +105,7 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
   <div class="wrap">
     <a class="brand" href="https://www.linkedin.com/in/david-harush-b2954942/" target="_blank" rel="noopener" data-tip="Open my LinkedIn profile" aria-label="David Harush, open LinkedIn profile (opens in a new tab)"><i></i>David Harush</a>
     <nav aria-label="Primary">
-      <a href="#home">Home</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a class="pill" href="#contact">Contact</a>
+      <a href="#home">Home</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a class="pill" href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -108,30 +122,23 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
     <h1>Senior full stack engineer for <span>data-heavy enterprise apps</span></h1>
     <p class="lead">15+ years of React, TypeScript and Node.js. Most recently the sole frontend engineer at XM Cyber, where I built the UI of a cloud security product from scratch and owned its frontend architecture and testing.</p>
     <div class="cta">
-      <a class="btn" href="#work">See my work</a>
+      <a class="btn" href="#experience">See my work</a>
       <a class="btn ghost" href="#contact">Contact me</a>
     </div>
   </div>
   <div class="strip" aria-label="Daily stack">
     <div class="lbl">Daily<b>stack</b></div>
-    <div>React</div><div>TypeScript</div><div>Node.js</div><div>Nest.js</div><div>Playwright</div><div>Storybook</div>
-  </div>
-</section>
-
-<section class="block view" id="work" data-view="work" hidden>
-  <div class="wrap">
-    <div class="label">[ <b>01</b> / 04 ] · WORK</div>
-    <h2>Enterprise products, built end to end</h2>
-    <div class="work">
-      <div class="tabs" role="tablist" aria-label="Case studies" id="tabs"></div>
-      <div class="panel" role="tabpanel" id="panel" aria-live="polite"></div>
-    </div>
+    <a href="https://react.dev" target="_blank" rel="noopener noreferrer" title="react.dev">React</a>
+    <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer" title="typescriptlang.org">TypeScript</a>
+    <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" title="nodejs.org">Node.js</a>
+    <a href="https://nestjs.com" target="_blank" rel="noopener noreferrer" title="nestjs.com">Nest.js</a>
+    <a href="https://playwright.dev" target="_blank" rel="noopener noreferrer" title="playwright.dev">Playwright</a>
+    <a href="https://storybook.js.org" target="_blank" rel="noopener noreferrer" title="storybook.js.org">Storybook</a>
   </div>
 </section>
 
 <section class="block alt view" id="skills" data-view="skills" hidden>
   <div class="wrap">
-    <div class="label">[ <b>02</b> / 04 ] · SKILLS</div>
     <h2>What I work with every day</h2>
     <div class="groups" id="groups"></div>
   </div>
@@ -139,7 +146,6 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
 
 <section class="block view" id="experience" data-view="experience" hidden>
   <div class="wrap">
-    <div class="label">[ <b>03</b> / 04 ] · EXPERIENCE</div>
     <h2>Where I have worked</h2>
     <div class="jobs" id="jobs"></div>
   </div>
@@ -147,7 +153,6 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
 
 <section class="view" id="contact" data-view="contact" hidden>
   <div class="contact-in">
-    <div class="label" style="margin:0">[ <b>04</b> / 04 ] · CONTACT</div>
     <h2>Hiring a senior full stack engineer? <span>Let us talk.</span></h2>
     <p class="lead">The best way to reach me is a message on LinkedIn.</p>
     <div class="cta"><a class="btn" href="https://www.linkedin.com/in/david-harush-b2954942/" rel="noopener">Message me on LinkedIn</a></div>
@@ -159,11 +164,11 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
 <script>
 (function () {
   var projects = [
-    { name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed micro-frontend applications with React, TypeScript and Module Federation for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation'] },
-    { name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on Node.js and Nest.js that aggregate microservice APIs, and optimized data fetching on the client with TanStack Query.', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js', 'Node.js', 'TanStack Query'] },
-    { name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with Playwright component tests, Storybook play functions and visual screenshot testing. Also built AI-assisted tooling that monitors CI/CD, reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'CI/CD'] },
-    { name: 'Bancor: JavaScript to strict TypeScript', problem: 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'React', 'Component libraries'] },
-    { name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
+    { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed micro-frontend applications with React, TypeScript and Module Federation for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation'] },
+    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on Node.js and Nest.js that aggregate microservice APIs, and optimized data fetching on the client with TanStack Query.', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js', 'Node.js', 'TanStack Query'] },
+    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with Playwright component tests, Storybook play functions and visual screenshot testing. Also built AI-assisted tooling that monitors CI/CD, reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'CI/CD'] },
+    { job: 2, title: 'JavaScript to strict TypeScript', name: 'Bancor: JavaScript to strict TypeScript', problem: 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'React', 'Component libraries'] },
+    { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
     ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'TanStack Table', 'Material UI', 'Tailwind CSS']],
@@ -181,50 +186,159 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
   ];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function tags(list) { var w = el('div', 'tags'); list.forEach(function (t) { w.appendChild(el('span', null, t)); }); return w; }
-
-  var tabs = document.getElementById('tabs'), panel = document.getElementById('panel');
-  function show(i) {
-    var p = projects[i];
-    Array.prototype.forEach.call(tabs.children, function (b, k) { b.setAttribute('aria-selected', k === i ? 'true' : 'false'); b.tabIndex = k === i ? 0 : -1; });
-    panel.textContent = '';
-    panel.appendChild(el('div', 'shot', '[ screenshot or diagram ]'));
-    panel.appendChild(el('h3', null, p.name));
-    panel.appendChild(el('p', null, p.problem));
-    var r = el('p', 'res'); r.appendChild(el('b', null, 'Result: ')); r.appendChild(document.createTextNode(p.result)); panel.appendChild(r);
-    panel.appendChild(tags(p.stack));
+  var LINKS = {
+    'React': 'https://react.dev',
+    'TypeScript': 'https://www.typescriptlang.org',
+    'JavaScript (ES6+)': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    'HTML5': 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    'Node.js': 'https://nodejs.org',
+    'Nest.js': 'https://nestjs.com',
+    'Nest.js (BFF)': 'https://nestjs.com',
+    'REST APIs': 'https://restfulapi.net',
+    'Redux Toolkit': 'https://redux-toolkit.js.org',
+    'Zustand': 'https://github.com/pmndrs/zustand',
+    'TanStack Query': 'https://tanstack.com/query',
+    'TanStack Table': 'https://tanstack.com/table',
+    'Material UI': 'https://mui.com',
+    'Tailwind CSS': 'https://tailwindcss.com',
+    'State management': 'https://react.dev/learn/managing-state',
+    'Micro-Frontends': 'https://micro-frontends.org',
+    'Module Federation': 'https://module-federation.io',
+    'Nx Monorepo': 'https://nx.dev',
+    'Rspack': 'https://rspack.dev',
+    'Webpack': 'https://webpack.js.org',
+    'Storybook': 'https://storybook.js.org',
+    'Component libraries': 'https://storybook.js.org',
+    'Design systems': 'https://www.nngroup.com/articles/design-systems-101/',
+    'CI/CD': 'https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment',
+    'Playwright': 'https://playwright.dev',
+    'Cypress': 'https://www.cypress.io',
+    'Jest': 'https://jestjs.io',
+    'Rstest': 'https://rstest.rs',
+    'MSW': 'https://mswjs.io',
+    'Storybook interaction tests': 'https://storybook.js.org/docs/writing-tests/interaction-testing'
+  };
+  // Skills that map to a job (j) and, where there is one, a case study inside it (c), based on what the CV says.
+  var TARGETS = {
+    'React': { j: 0, c: 0 }, 'Module Federation': { j: 0, c: 0 }, 'Micro-Frontends': { j: 0, c: 0 },
+    'TanStack Query': { j: 0, c: 1 }, 'Node.js': { j: 0, c: 1 }, 'Nest.js (BFF)': { j: 0, c: 1 },
+    'Storybook': { j: 0, c: 2 }, 'Storybook interaction tests': { j: 0, c: 2 }, 'Playwright': { j: 0, c: 2 }, 'CI/CD': { j: 0, c: 2 },
+    'TypeScript': { j: 2 }, 'JavaScript (ES6+)': { j: 2 }, 'Design systems': { j: 2 },
+    'Redux Toolkit': { j: 1 }, 'Material UI': { j: 1 }
+  };
+  // Where each skill was used, taken from the CV.
+  var WHERE = {
+    'React': 'XM Cyber, Foretellix and Pyramid Analytics',
+    'Module Federation': 'XM Cyber, CSPM micro-frontends',
+    'Micro-Frontends': 'XM Cyber, CSPM micro-frontends',
+    'TypeScript': 'Bancor (strict migration), Foretellix and XM Cyber',
+    'JavaScript (ES6+)': 'Bancor, migrating legacy JavaScript codebases',
+    'Design systems': 'Bancor component libraries and the XM Cyber design system',
+    'TanStack Query': 'XM Cyber, data fetching behind the Nest.js BFF',
+    'Node.js': 'XM Cyber, Nest.js BFF layer',
+    'Nest.js (BFF)': 'XM Cyber, Nest.js BFF layer',
+    'Storybook': 'XM Cyber, testing and quality',
+    'Storybook interaction tests': 'XM Cyber, testing and quality',
+    'Playwright': 'XM Cyber, testing and quality',
+    'CI/CD': 'XM Cyber, AI-assisted CI/CD tooling',
+    'Redux Toolkit': 'Foretellix',
+    'Material UI': 'Foretellix'
+  };
+  var pending = null;
+  function goTo(tg) {
+    pending = tg;
+    var want = '#experience';
+    if (location.hash === want) route(); else location.hash = want;
   }
-  projects.forEach(function (p, i) {
-    var b = el('button', null, p.name); b.type = 'button'; b.setAttribute('role', 'tab');
-    b.addEventListener('click', function () { show(i); });
-    b.addEventListener('keydown', function (e) {
-      var n = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
-      if (n) { e.preventDefault(); var k = (i + n + projects.length) % projects.length; show(k); tabs.children[k].focus(); }
+  function applyPending() {
+    if (!pending) return;
+    var tg = pending, node;
+    pending = null;
+    node = tg.j != null ? document.getElementById('jobs').children[tg.j] : null;
+    if (node && tg.c != null) { var cs = node.querySelectorAll('details.case'); if (cs[tg.c]) { setCase(cs[tg.c], true); node = cs[tg.c]; } }
+    if (!node) return;
+    node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    node.classList.remove('flash'); void node.offsetWidth; node.classList.add('flash');
+    setTimeout(function () { node.classList.remove('flash'); }, 2500);
+  }
+  function tags(list, internal) {
+    var w = el('div', 'tags');
+    list.forEach(function (t) {
+      var u = LINKS[t], e, tg = internal && (TARGETS[t] || {});
+      if (tg) {
+        e = el('a', null, t); e.href = '#experience';
+        e.className = 'tip';
+        e.setAttribute('data-tip', WHERE[t] ? 'Where I used it: ' + WHERE[t] + '. Click to see it.' : 'Part of my day-to-day toolkit. Click to see my experience.');
+        e.setAttribute('aria-label', WHERE[t] ? t + ', used at ' + WHERE[t] + ', opens the related experience' : t + ', opens my experience');
+        e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg); });
+      } else if (u) {
+        var host = u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+        e = el('a', null, t); e.href = u; e.target = '_blank'; e.rel = 'noopener noreferrer'; e.title = host;
+        e.setAttribute('aria-label', t + ', opens ' + host + ' in a new tab');
+      } else { e = el('span', null, t); }
+      w.appendChild(e);
     });
-    tabs.appendChild(b);
-  });
-  show(0);
+    return w;
+  }
+
+  function resultLine(p) { var r = el('p', 'res'); r.appendChild(el('b', null, 'Result: ')); r.appendChild(document.createTextNode(p.result)); return r; }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Opens or closes a case study with a height and fade animation.
+  function setCase(d, wantOpen) {
+    if (d.open === wantOpen && !d._anim) { d._want = wantOpen; return; }
+    if (d._anim) { d._anim.onfinish = d._anim.oncancel = null; d._anim.cancel(); d._anim = null; }
+    d._want = wantOpen;
+    var s = d.querySelector('summary'), inner = d.querySelector('.in');
+    if (reduceMotion || !d.animate) { d.open = wantOpen; return; }
+    var from = d.offsetHeight;
+    d.style.overflow = 'hidden';
+    d.open = true;
+    var full = d.offsetHeight;
+    var closed = s.offsetHeight + (d.offsetHeight - d.clientHeight);
+    var a = d.animate({ height: [from + 'px', (wantOpen ? full : closed) + 'px'] }, { duration: 280, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    inner.animate(wantOpen ? [{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'none' }] : [{ opacity: 1 }, { opacity: 0 }], { duration: 280, easing: 'ease' });
+    d._anim = a;
+    a.onfinish = a.oncancel = function () { d.open = wantOpen; d.style.overflow = ''; d._anim = null; };
+  }
 
   var g = document.getElementById('groups');
-  groups.forEach(function (x) { var d = el('div', 'group'); d.appendChild(el('h3', null, x[0])); d.appendChild(tags(x[1])); g.appendChild(d); });
+  groups.forEach(function (x) { var d = el('div', 'group'); d.appendChild(el('h3', null, x[0])); d.appendChild(tags(x[1], true)); g.appendChild(d); });
 
   var j = document.getElementById('jobs');
-  jobs.forEach(function (x) {
+  jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
     var b = el('div', 'b'); var h = el('h3', null, x[2] + ' '); h.appendChild(el('span', null, '· ' + x[1]));
-    b.appendChild(h); b.appendChild(el('p', null, x[3])); row.appendChild(b); j.appendChild(row);
+    b.appendChild(h); b.appendChild(el('p', null, x[3]));
+    var cs = projects.filter(function (p) { return p.job === i; });
+    if (cs.length > 1) {
+      var wrap = el('div', 'cases');
+      cs.forEach(function (p) {
+        var d = el('details', 'case'), sm = el('summary', null, p.title);
+        sm.addEventListener('click', function (ev) { ev.preventDefault(); setCase(d, !(d._want != null ? d._want : d.open)); });
+        d.appendChild(sm);
+        var inn = el('div', 'in'); inn.appendChild(el('p', null, p.problem)); inn.appendChild(resultLine(p)); inn.appendChild(tags(p.stack));
+        d.appendChild(inn); wrap.appendChild(d);
+      });
+      b.appendChild(wrap);
+    } else if (cs.length === 1) {
+      var one = el('div', 'inline'); one.appendChild(resultLine(cs[0])); one.appendChild(tags(cs[0].stack)); b.appendChild(one);
+    }
+    row.appendChild(b); j.appendChild(row);
   });
 
   var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
   var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
-  var titles = { home: 'David Harush, Senior Full Stack Engineer', work: 'Work | David Harush', skills: 'Skills | David Harush', experience: 'Experience | David Harush', contact: 'Contact | David Harush' };
+  var titles = { home: 'David Harush, Senior Full Stack Engineer', skills: 'Skills | David Harush', experience: 'Experience | David Harush', contact: 'Contact | David Harush' };
   function route() {
     var h = (location.hash || '#home').slice(1);
+    if (h === 'work') h = 'experience';
     if (!titles[h]) h = 'home';
     views.forEach(function (v) { v.hidden = v.getAttribute('data-view') !== h; });
     links.forEach(function (a) { if (a.getAttribute('href') === '#' + h) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.title = titles[h];
     window.scrollTo(0, 0);
+    applyPending();
   }
   window.addEventListener('hashchange', route);
   route();
