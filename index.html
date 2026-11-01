@@ -182,7 +182,7 @@ body{overflow-x:clip}
     ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.'],
     ['Jun 2015 – Jun 2018', 'Senior Web Developer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.'],
     ['Jan 2011 – May 2015', 'Web Developer', 'Visa CAL Israel', 'Built enterprise financial web applications, frontend and server integration.'],
-    ['Jan 2009 – Jan 2011', 'Web Developer, Software Engineer', 'Bank Leumi (via Ness) and Taldor', 'Early career roles building web applications.']
+    ['Jan 2009 – Jan 2011', 'Web Developer, Software Engineer', 'Bank Leumi (via Ness) and Taldor', '']
   ];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -309,7 +309,7 @@ body{overflow-x:clip}
   jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
     var b = el('div', 'b'); var h = el('h3', null, x[2] + ' '); h.appendChild(el('span', null, '· ' + x[1]));
-    b.appendChild(h); b.appendChild(el('p', null, x[3]));
+    b.appendChild(h); if (x[3]) b.appendChild(el('p', null, x[3]));
     var cs = projects.filter(function (p) { return p.job === i; });
     if (cs.length > 1) {
       var wrap = el('div', 'cases');
