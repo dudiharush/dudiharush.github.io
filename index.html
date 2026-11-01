@@ -34,11 +34,13 @@ nav a.pill{background:var(--text);color:var(--bg);padding:9px 18px;border-radius
 .btn{display:inline-block;text-decoration:none;font-size:16px;padding:13px 24px;border-radius:999px;font-weight:600;background:var(--text);color:var(--bg)}
 .btn.ghost{background:var(--chip);color:var(--text);font-weight:500;border:1px solid var(--line2);padding:12px 23px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);--mx:50%;--my:62%}
-.hero .grid,.hero .dots,.hero .glow{position:absolute;inset:0;pointer-events:none}
-.hero .grid{background-image:linear-gradient(#1A1E1B 1px,transparent 1px),linear-gradient(90deg,#1A1E1B 1px,transparent 1px);background-size:96px 96px;background-position:center top;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%)}
-.hero .dots{background-image:radial-gradient(var(--accent) 1.6px,transparent 1.8px);background-size:22px 22px;-webkit-mask-image:radial-gradient(260px circle at var(--mx) var(--my),#000 0,transparent 100%);mask-image:radial-gradient(260px circle at var(--mx) var(--my),#000 0,transparent 100%)}
-.hero .glow{background:radial-gradient(380px circle at var(--mx) var(--my),rgba(134,238,107,.10),rgba(134,238,107,0) 70%)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:0;--mx:50%;--my:45%}
+.fx div{position:absolute;inset:0;pointer-events:none}
+main{position:relative;z-index:1}
+.fx .grid{background-image:linear-gradient(#1A1E1B 1px,transparent 1px),linear-gradient(90deg,#1A1E1B 1px,transparent 1px);background-size:96px 96px;background-position:center top;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 75%,transparent 100%)}
+.fx .dots{background-image:radial-gradient(var(--accent) 1.6px,transparent 1.8px);background-size:22px 22px;-webkit-mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%);mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%)}
+.fx .glow{background:radial-gradient(420px circle at var(--mx) var(--my),rgba(134,238,107,.17),rgba(134,238,107,0) 70%)}
 .plus{position:absolute;top:22%;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:#101211;color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:20px}
 .hero-in{position:relative;max-width:900px;margin:0 auto;padding:104px 24px 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
 .badge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:#101211;border-radius:999px;padding:7px 14px;font-size:14px;color:#B4B9B4}
@@ -62,8 +64,11 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
 .tags a:hover,.tags a:focus-visible{border-color:var(--accent);color:var(--accent);background:#10200F}
 .tags.ti{display:inline}
 .ti a,.ti span{display:inline-block;font-size:.74em;padding:0 8px;margin:0;line-height:1.55;vertical-align:.06em}
-.tags .hit,.tags a.hit:hover{border-color:var(--accent);background:var(--accent);color:#0A0B0A;box-shadow:0 0 0 4px rgba(134,238,107,.18)}
+.tags .hit{border-color:var(--accent);background:var(--chip);color:#C9CEC9;animation:hitfade 2.4s ease both}
+@keyframes hitfade{0%,50%{background:var(--accent);color:#0A0B0A;box-shadow:0 0 0 4px rgba(134,238,107,.28)}100%{background:var(--chip);color:#C9CEC9;box-shadow:0 0 0 0 rgba(134,238,107,0)}}
+@media (prefers-reduced-motion:reduce){.tags .hit{animation:none;box-shadow:0 0 0 2px rgba(134,238,107,.3)}}
 .case,.job{scroll-margin-top:90px}
+.sr{position:absolute;width:1px;height:1px;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 body{overflow-x:clip}
 .tip{position:relative}
 .tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,4px);width:max-content;max-width:min(260px,72vw);white-space:normal;text-align:left;background:#171A18;border:1px solid #2A2E2B;color:var(--text);font-size:13px;font-weight:500;line-height:1.4;padding:8px 12px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.45)}
@@ -74,7 +79,7 @@ body{overflow-x:clip}
 .job.flash{animation:jflash 2.4s ease}
 @media (prefers-reduced-motion:reduce){.case.flash{animation:none;box-shadow:0 0 0 2px var(--accent)}.job.flash{animation:none;background:rgba(134,238,107,.12)}}
 .groups{display:flex;flex-wrap:wrap;gap:16px}
-.group{flex:1 1 240px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.group{flex:1 1 240px;min-width:0;background:rgba(15,17,15,.5);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
 .group h3{font-size:18px;font-weight:500}
 .group .tags span,.group .tags a{font-size:14px;padding:6px 14px}
 .jobs{border-bottom:1px solid var(--line)}
@@ -86,7 +91,7 @@ body{overflow-x:clip}
 .job p.res{color:var(--text)}.job p.res b{color:var(--accent);font-weight:500}
 .inline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
 .cases{display:flex;flex-direction:column;gap:10px;margin-top:14px}
-.case{border:1px solid var(--line);background:var(--panel);border-radius:14px}
+.case{border:1px solid var(--line);background:rgba(15,17,15,.5);border-radius:14px}
 .case summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:500;display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px}
 .case summary::-webkit-details-marker{display:none}
 .case summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:18px}
@@ -104,6 +109,7 @@ body{overflow-x:clip}
 </style>
 </head>
 <body>
+<div class="fx" id="fx" aria-hidden="true"><div class="grid"></div><div class="dots"></div><div class="glow"></div></div>
 <header>
   <div class="wrap">
     <a class="brand" href="https://www.linkedin.com/in/david-harush-b2954942/" target="_blank" rel="noopener" data-tip="Open my LinkedIn profile" aria-label="David Harush, open LinkedIn profile (opens in a new tab)"><i></i>David Harush</a>
@@ -115,9 +121,6 @@ body{overflow-x:clip}
 
 <main>
 <section class="hero view" id="hero" data-view="home">
-  <div class="grid" aria-hidden="true"></div>
-  <div class="dots" aria-hidden="true"></div>
-  <div class="glow" aria-hidden="true"></div>
   <div class="plus" style="left:8%" aria-hidden="true">+</div>
   <div class="plus" style="right:8%" aria-hidden="true">+</div>
   <div class="hero-in">
@@ -142,14 +145,14 @@ body{overflow-x:clip}
 
 <section class="block alt view" id="skills" data-view="skills" hidden>
   <div class="wrap">
-    <h2>What I work with every day</h2>
+    <h2 class="sr">Skills</h2>
     <div class="groups" id="groups"></div>
   </div>
 </section>
 
 <section class="block view" id="experience" data-view="experience" hidden>
   <div class="wrap">
-    <h2>Where I have worked</h2>
+    <h2 class="sr">Experience</h2>
     <div class="jobs" id="jobs"></div>
   </div>
 </section>
@@ -363,14 +366,13 @@ body{overflow-x:clip}
   window.addEventListener('hashchange', route);
   route();
 
-  var hero = document.getElementById('hero');
+  var fx = document.getElementById('fx');
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    hero.addEventListener('mousemove', function (e) {
-      var r = hero.getBoundingClientRect();
-      hero.style.setProperty('--mx', Math.round(e.clientX - r.left) + 'px');
-      hero.style.setProperty('--my', Math.round(e.clientY - r.top) + 'px');
+    window.addEventListener('mousemove', function (e) {
+      fx.style.setProperty('--mx', Math.round(e.clientX) + 'px');
+      fx.style.setProperty('--my', Math.round(e.clientY) + 'px');
     });
-    hero.addEventListener('mouseleave', function () { hero.style.removeProperty('--mx'); hero.style.removeProperty('--my'); });
+    document.documentElement.addEventListener('mouseleave', function () { fx.style.removeProperty('--mx'); fx.style.removeProperty('--my'); });
   }
 })();
 </script>
