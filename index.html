@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://dudiharush.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 :root{--bg:#0A0B0A;--panel:#0F110F;--chip:#151816;--line:#1E221F;--line2:#262A27;--text:#EDEEEC;--muted:#A3A8A3;--dim:#9AA09A;--accent:#86EE6B}
 *{box-sizing:border-box}
@@ -53,13 +53,15 @@ main{position:relative;z-index:1}
 .fx .dots{background-image:radial-gradient(var(--accent) 1.6px,transparent 1.8px);background-size:22px 22px;-webkit-mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%);mask-image:radial-gradient(320px circle at var(--mx) var(--my),#000 0,transparent 100%)}
 .fx .glow{background:radial-gradient(420px circle at var(--mx) var(--my),rgba(134,238,107,.17),rgba(134,238,107,0) 70%)}
 .plus{position:absolute;top:22%;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:#101211;color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:20px}
-.hero-in{position:relative;max-width:900px;margin:0 auto;padding:104px 24px 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero-in{position:relative;max-width:1080px;margin:0 auto;padding:104px 24px 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
 .badge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:#101211;border-radius:999px;padding:7px 14px;font-size:14px;color:#B4B9B4}
 .badge i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:dotfade 2.4s ease-in-out infinite}
 @keyframes dotfade{0%,100%{background:#1E3F1B}50%{background:var(--accent)}}
 @media (prefers-reduced-motion:reduce){.badge i{animation:none}}
-h1{font-weight:600;font-size:clamp(38px,6.2vw,72px);line-height:1.06;letter-spacing:-.03em}
+h1{font-weight:600;font-size:clamp(32px,5.4vw,64px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
 h1 span{color:var(--accent);display:block}
+h1 .heavy{font-weight:800;color:#B6FF6B;letter-spacing:-.04em}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){h1 .heavy{background:linear-gradient(90deg,#86EE6B 0%,#D2FF7A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}}
 .lead{font-size:19px;line-height:1.6;color:var(--muted);max-width:620px}
 .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding-top:6px}
 .strip{position:relative;max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;border:1px solid var(--line);border-bottom:0;background:var(--bg)}
@@ -140,7 +142,7 @@ body{overflow-x:clip}
   <div class="plus" style="right:8%" aria-hidden="true">+</div>
   <div class="hero-in">
     <div class="badge"><i></i>Open to hybrid roles</div>
-    <h1>Senior full stack engineer for <span>data-heavy enterprise apps</span></h1>
+    <h1>Senior full stack engineer <span>for <b class="heavy">data-heavy</b> enterprise apps</span></h1>
     <p class="lead">15+ years of React, TypeScript and Node.js. Most recently the sole frontend engineer at XM Cyber, where I built the UI of a cloud security product from scratch and owned its frontend architecture and testing.</p>
     <div class="cta">
       <a class="btn" href="#experience">See my work</a>
