@@ -60,6 +60,9 @@ h2{font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacin
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .tags span,.tags a{border:1px solid var(--line2);background:var(--chip);border-radius:999px;padding:5px 13px;font-size:13px;color:#C9CEC9;text-decoration:none;transition:border-color .15s,color .15s,background .15s}
 .tags a:hover,.tags a:focus-visible{border-color:var(--accent);color:var(--accent);background:#10200F}
+.tags.ti{display:inline}
+.ti a,.ti span{display:inline-block;font-size:.74em;padding:0 8px;margin:0;line-height:1.55;vertical-align:.06em}
+.tags .hit,.tags a.hit:hover{border-color:var(--accent);background:var(--accent);color:#0A0B0A;box-shadow:0 0 0 4px rgba(134,238,107,.18)}
 .case,.job{scroll-margin-top:90px}
 body{overflow-x:clip}
 .tip{position:relative}
@@ -164,10 +167,10 @@ body{overflow-x:clip}
 <script>
 (function () {
   var projects = [
-    { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed micro-frontend applications with React, TypeScript and Module Federation for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation'] },
-    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on Node.js and Nest.js that aggregate microservice APIs, and optimized data fetching on the client with TanStack Query.', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js', 'Node.js', 'TanStack Query'] },
-    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with Playwright component tests, Storybook play functions and visual screenshot testing. Also built AI-assisted tooling that monitors CI/CD, reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'CI/CD'] },
-    { job: 2, title: 'JavaScript to strict TypeScript', name: 'Bancor: JavaScript to strict TypeScript', problem: 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'React', 'Component libraries'] },
+    { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed [[Micro-Frontends|micro-frontend]] applications with [[React]], [[TypeScript]] and [[Module Federation]] for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation', 'Micro-Frontends'] },
+    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on [[Node.js]] and [[Nest.js (BFF)|Nest.js]] that aggregate microservice APIs, and optimized data fetching on the client with [[TanStack Query]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
+    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Set up automated testing with [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and visual screenshot testing. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
+    { job: 2, title: 'JavaScript to strict TypeScript', name: 'Bancor: JavaScript to strict TypeScript', problem: 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'JavaScript (ES6+)', 'Design systems'] },
     { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
@@ -177,10 +180,10 @@ body{overflow-x:clip}
     ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']]
   ];
   var jobs = [
-    ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared design system, including helping migrate it from JavaScript to TypeScript.'],
-    ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company frontend project from scratch with React, TypeScript, Material UI and Redux Toolkit.'],
-    ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Migrated legacy JavaScript codebases to strict TypeScript and designed reusable UI component libraries used across multiple delivery teams.'],
-    ['Jun 2015 – Jun 2018', 'Senior Web Developer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.'],
+    ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared design system, including helping migrate it from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]].'],
+    ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company frontend project from scratch with [[React]], [[TypeScript]], [[Material UI]] and [[Redux Toolkit]].'],
+    ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Migrated legacy [[JavaScript (ES6+)|JavaScript]] codebases to strict [[TypeScript]] and designed reusable UI [[Design systems|component libraries]] used across multiple delivery teams.'],
+    ['Jun 2015 – Jun 2018', 'Senior Web Developer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with [[React]] and [[HTML5]], managing state for large data sets.'],
     ['Jan 2011 – May 2015', 'Web Developer', 'Visa CAL Israel', 'Built enterprise financial web applications, frontend and server integration.'],
     ['Jan 2009 – Jan 2011', 'Web Developer, Software Engineer', 'Bank Leumi (via Ness) and Taldor', '']
   ];
@@ -245,8 +248,8 @@ body{overflow-x:clip}
     'Material UI': 'Foretellix'
   };
   var pending = null;
-  function goTo(tg) {
-    pending = tg;
+  function goTo(tg, skill) {
+    pending = { j: tg.j, c: tg.c, skill: skill };
     var want = '#experience';
     if (location.hash === want) route(); else location.hash = want;
   }
@@ -257,6 +260,7 @@ body{overflow-x:clip}
     node = tg.j != null ? document.getElementById('jobs').children[tg.j] : null;
     if (node && tg.c != null) { var cs = node.querySelectorAll('details.case'); if (cs[tg.c]) { setCase(cs[tg.c], true); node = cs[tg.c]; } }
     if (!node) return;
+    if (tg.skill) { var chipEl = node.querySelector('[data-skill="' + tg.skill + '"]'); if (chipEl) chipEl.classList.add('hit'); }
     node.scrollIntoView({ behavior: 'smooth', block: 'start' });
     node.classList.remove('flash'); void node.offsetWidth; node.classList.add('flash');
     setTimeout(function () { node.classList.remove('flash'); }, 2500);
@@ -270,18 +274,33 @@ body{overflow-x:clip}
         e.className = 'tip';
         e.setAttribute('data-tip', WHERE[t] ? 'Where I used it: ' + WHERE[t] + '. Click to see it.' : 'Part of my day-to-day toolkit. Click to see my experience.');
         e.setAttribute('aria-label', WHERE[t] ? t + ', used at ' + WHERE[t] + ', opens the related experience' : t + ', opens my experience');
-        e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg); });
+        e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg, t); });
       } else if (u) {
         var host = u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
         e = el('a', null, t); e.href = u; e.target = '_blank'; e.rel = 'noopener noreferrer'; e.title = host;
         e.setAttribute('aria-label', t + ', opens ' + host + ' in a new tab');
       } else { e = el('span', null, t); }
+      e.setAttribute('data-skill', t);
       w.appendChild(e);
     });
     return w;
   }
 
   function resultLine(p) { var r = el('p', 'res'); r.appendChild(el('b', null, 'Result: ')); r.appendChild(document.createTextNode(p.result)); return r; }
+
+  // Turns [[Skill]] or [[Skill|label]] markers in a sentence into inline chips.
+  function rich(text) {
+    var frag = document.createDocumentFragment();
+    text.split(/(\[\[[^\]]+\]\])/).forEach(function (part) {
+      var m = part.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/);
+      if (m) {
+        var w = tags([m[1]], false); w.className = 'tags ti';
+        if (m[2]) w.firstChild.textContent = m[2];
+        frag.appendChild(w);
+      } else if (part) { frag.appendChild(document.createTextNode(part)); }
+    });
+    return frag;
+  }
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Opens or closes a case study with a height and fade animation.
@@ -309,7 +328,7 @@ body{overflow-x:clip}
   jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
     var b = el('div', 'b'); var h = el('h3', null, x[2] + ' '); h.appendChild(el('span', null, '· ' + x[1]));
-    b.appendChild(h); if (x[3]) b.appendChild(el('p', null, x[3]));
+    b.appendChild(h); if (x[3]) { var sp = el('p'); sp.appendChild(rich(x[3])); b.appendChild(sp); }
     var cs = projects.filter(function (p) { return p.job === i; });
     if (cs.length > 1) {
       var wrap = el('div', 'cases');
@@ -317,12 +336,12 @@ body{overflow-x:clip}
         var d = el('details', 'case'), sm = el('summary', null, p.title);
         sm.addEventListener('click', function (ev) { ev.preventDefault(); setCase(d, !(d._want != null ? d._want : d.open)); });
         d.appendChild(sm);
-        var inn = el('div', 'in'); inn.appendChild(el('p', null, p.problem)); inn.appendChild(resultLine(p)); inn.appendChild(tags(p.stack));
+        var inn = el('div', 'in'), pp = el('p'); pp.appendChild(rich(p.problem)); inn.appendChild(pp); inn.appendChild(resultLine(p));
         d.appendChild(inn); wrap.appendChild(d);
       });
       b.appendChild(wrap);
     } else if (cs.length === 1) {
-      var one = el('div', 'inline'); one.appendChild(resultLine(cs[0])); one.appendChild(tags(cs[0].stack)); b.appendChild(one);
+      var one = el('div', 'inline'); one.appendChild(resultLine(cs[0])); b.appendChild(one);
     }
     row.appendChild(b); j.appendChild(row);
   });
@@ -338,6 +357,7 @@ body{overflow-x:clip}
     links.forEach(function (a) { if (a.getAttribute('href') === '#' + h) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.title = titles[h];
     window.scrollTo(0, 0);
+    Array.prototype.forEach.call(document.querySelectorAll('.hit'), function (n) { n.classList.remove('hit'); });
     applyPending();
   }
   window.addEventListener('hashchange', route);
