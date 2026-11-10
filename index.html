@@ -206,20 +206,19 @@ body{overflow-x:clip}
     { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
-    ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'TanStack Table', 'Material UI', 'Tailwind CSS']],
-    ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Nx Monorepo', 'Rspack', 'Webpack', 'Storybook', 'Design systems', 'CI/CD']],
-    ['Testing', ['Playwright', 'Cypress', 'Jest', 'Rstest', 'MSW', 'Storybook interaction tests']],
-    ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']],
-    ['AI-assisted development', ['Context engineering', 'MCP-based context integration', 'Workspace rules (.cursorrules)']]
+    ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'Redux Toolkit', 'TanStack Query', 'Material UI']],
+    ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Storybook', 'Design systems', 'CI/CD']],
+    ['Testing', ['Playwright', 'Rstest', 'Storybook interaction tests']],
+    ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']]
   ];
   var jobs = [
     ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared component library and design system (owned by a separate team), including helping migrate it from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]].'],
     ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company\'s frontend project from scratch with [[React]], [[TypeScript]], [[Material UI]] and [[Redux Toolkit]], and wrote end-to-end (E2E) tests.'],
     ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Led the migration from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]] and the adoption of React Hooks, including training the team. Designed reusable UI [[Design systems|component libraries]] used across multiple delivery teams and built responsive mobile UI with Bootstrap.'],
     ['Jun 2015 – Jun 2018', 'Senior Frontend Engineer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with [[React]] and [[HTML5]], managing state for large data sets.'],
-    ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Built enterprise financial web applications, frontend and server integration, with ASP.NET MVC and Oracle / PL/SQL.'],
-    ['Jan 2010 – Jan 2011', 'Full Stack Engineer', 'Bank Leumi (via Ness Technologies)', 'ASP.NET Web Forms, Entity Framework and SQL Server. Built responsive mobile UI.'],
-    ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', 'WinForms with C#, SQL Server Compact.']
+    ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Built enterprise financial web applications (frontend and server integration).', 'Tech stack: ASP.NET MVC, Oracle / PL/SQL'],
+    ['Jan 2010 – Jan 2011', 'Full Stack Engineer', 'Bank Leumi (via Ness Technologies)', 'Built responsive mobile UI.', 'Tech stack: ASP.NET Web Forms, Entity Framework, SQL Server'],
+    ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', null, 'Tech stack: WinForms with C#, SQL Server Compact.']
   ];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -301,7 +300,7 @@ body{overflow-x:clip}
     node = tg.j != null ? document.getElementById('jobs').children[tg.j] : null;
     if (node && tg.c != null) { var cs = node.querySelectorAll('details.case'); if (cs[tg.c]) { setCase(cs[tg.c], true); node = cs[tg.c]; } }
     if (!node) return;
-    if (tg.skill) { var chipEl = node.querySelector('[data-skill="' + tg.skill + '"]'); if (chipEl) chipEl.classList.add('hit'); }
+    if (tg.skill) { var chips = document.querySelectorAll('#experience [data-skill="' + tg.skill + '"]'); Array.prototype.forEach.call(chips, function (c) { c.classList.add('hit'); }); }
     node.scrollIntoView({ behavior: 'smooth', block: 'start' });
     node.classList.remove('flash'); void node.offsetWidth; node.classList.add('flash');
     setTimeout(function () { node.classList.remove('flash'); }, 2500);
@@ -369,7 +368,7 @@ body{overflow-x:clip}
   jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
     var b = el('div', 'b'); var h = el('h3', null, x[2] + ' '); h.appendChild(el('span', null, '· ' + x[1]));
-    b.appendChild(h); if (x[3]) { var sp = el('p'); sp.appendChild(rich(x[3])); b.appendChild(sp); }
+    b.appendChild(h); if (x[3]) { var sp = el('p'); sp.appendChild(rich(x[3])); b.appendChild(sp); } if (x[4]) { var tp = el('p'); tp.appendChild(rich(x[4])); b.appendChild(tp); }
     var cs = projects.filter(function (p) { return p.job === i; });
     if (cs.length > 1) {
       var wrap = el('div', 'cases');
