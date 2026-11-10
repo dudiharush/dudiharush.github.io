@@ -206,10 +206,11 @@ body{overflow-x:clip}
     { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
-    ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'Redux Toolkit', 'TanStack Query', 'Material UI']],
-    ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Storybook', 'Design systems', 'CI/CD']],
-    ['Testing', ['Playwright', 'Rstest', 'Storybook interaction tests']],
-    ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']]
+    ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'TanStack Table', 'Material UI', 'Tailwind CSS']],
+    ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Nx Monorepo', 'Rspack', 'Webpack', 'Storybook', 'Design systems', 'CI/CD']],
+    ['Testing', ['Playwright', 'Cypress', 'Jest', 'Rstest', 'MSW', 'Storybook interaction tests']],
+    ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']],
+    ['AI-assisted development', ['Context engineering', 'MCP-based context integration', 'Workspace rules (.cursorrules)']]
   ];
   var jobs = [
     ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared component library and design system (owned by a separate team), including helping migrate it from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]].'],
@@ -218,7 +219,8 @@ body{overflow-x:clip}
     ['Jun 2015 – Jun 2018', 'Senior Frontend Engineer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with [[React]] and [[HTML5]], managing state for large data sets.'],
     ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Built enterprise financial web applications (frontend and server integration).', 'Tech stack: ASP.NET MVC, Oracle / PL/SQL'],
     ['Jan 2010 – Jan 2011', 'Full Stack Engineer', 'Bank Leumi (via Ness Technologies)', 'Built responsive mobile UI.', 'Tech stack: ASP.NET Web Forms, Entity Framework, SQL Server'],
-    ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', null, 'Tech stack: WinForms with C#, SQL Server Compact.']
+    ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', null, 'Tech stack: WinForms with C#, SQL Server Compact.'],
+    ['', 'Additional technical experience', '', 'Tools and technologies: [[CSS]], [[Zustand]], [[TanStack Table]], [[Tailwind CSS]], [[Nx Monorepo]], [[Rspack]], [[Webpack]], [[Cypress]], [[Jest]], [[MSW]].', 'AI-assisted development: [[Context engineering]], [[MCP-based context integration]], [[Workspace rules (.cursorrules)]].']
   ];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -264,7 +266,10 @@ body{overflow-x:clip}
     'TypeScript': { j: 2 }, 'JavaScript (ES6+)': { j: 2 }, 'Design systems': { j: 2 },
     'Redux Toolkit': { j: 1 }, 'Material UI': { j: 1 }, 'HTML5': { j: 3 },
     'REST APIs': { j: 0, c: 1 },
-    'Rstest': { j: 0, c: 2 }
+    'Rstest': { j: 0, c: 2 },
+    'CSS': { j: 7 }, 'Zustand': { j: 7 }, 'TanStack Table': { j: 7 }, 'Tailwind CSS': { j: 7 },
+    'Nx Monorepo': { j: 7 }, 'Rspack': { j: 7 }, 'Webpack': { j: 7 }, 'Cypress': { j: 7 }, 'Jest': { j: 7 }, 'MSW': { j: 7 },
+    'Context engineering': { j: 7 }, 'MCP-based context integration': { j: 7 }, 'Workspace rules (.cursorrules)': { j: 7 }
   };
   // Where each skill was used, taken from the CV.
   var WHERE = {
@@ -312,8 +317,8 @@ body{overflow-x:clip}
       if (internal) {
         e = el('a', null, t); e.href = '#experience';
         e.className = 'tip';
-        e.setAttribute('data-tip', WHERE[t] ? 'Where I used it: ' + WHERE[t] + '. Click to see it.' : 'Part of my day-to-day toolkit. Click to see my experience.');
-        e.setAttribute('aria-label', WHERE[t] ? t + ', used at ' + WHERE[t] + ', opens the related experience' : t + ', opens my experience');
+        e.setAttribute('data-tip', WHERE[t] ? 'Where I used it: ' + WHERE[t] + '. Click to see it.' : 'Additional technical experience. Click to see it.');
+        e.setAttribute('aria-label', WHERE[t] ? t + ', used at ' + WHERE[t] + ', opens the related experience' : t + ', additional technical experience, opens my experience');
         if (tg) e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg, t); });
       } else if (u) {
         var host = u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
@@ -367,7 +372,7 @@ body{overflow-x:clip}
   var j = document.getElementById('jobs');
   jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
-    var b = el('div', 'b'); var h = el('h3', null, x[2] + ' '); h.appendChild(el('span', null, '· ' + x[1]));
+    var b = el('div', 'b'); var h = x[2] ? el('h3', null, x[2] + ' ') : el('h3'); h.appendChild(el('span', null, (x[2] ? '· ' : '') + x[1]));
     b.appendChild(h); if (x[3]) { var sp = el('p'); sp.appendChild(rich(x[3])); b.appendChild(sp); } if (x[4]) { var tp = el('p'); tp.appendChild(rich(x[4])); b.appendChild(tp); }
     var cs = projects.filter(function (p) { return p.job === i; });
     if (cs.length > 1) {
