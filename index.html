@@ -201,26 +201,26 @@ body{overflow-x:clip}
   var projects = [
     { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed [[Micro-Frontends|micro-frontend]] applications with [[React]], [[TypeScript]] and [[Module Federation]] for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation', 'Micro-Frontends'] },
     { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on [[Node.js]] and [[Nest.js (BFF)|Nest.js]] that aggregate microservice [[REST APIs|APIs]], and optimized data fetching on the client with [[TanStack Query]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
-    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Implemented an AI testing agent for visual screenshot testing using [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and [[Rstest]], and wrote end-to-end (E2E) tests. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
+    { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Implemented an AI testing agent for visual screenshot testing using [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and [[Rstest]], and wrote [[E2E testing|end-to-end (E2E) tests]] with [[Playwright]]. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
     { job: 2, title: 'JavaScript to TypeScript', name: 'Bancor: JavaScript to TypeScript', problem: 'Led the migration of legacy JavaScript codebases to TypeScript and the adoption of React Hooks, including training the team. Designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'JavaScript (ES6+)', 'Design systems'] },
     { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance client-side BI interfaces with React and HTML5, managing state for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
     ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'TanStack Table', 'Material UI', 'Tailwind CSS']],
     ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Nx Monorepo', 'Rspack', 'Webpack', 'Storybook', 'Design systems', 'CI/CD']],
-    ['Testing', ['Playwright', 'Cypress', 'Jest', 'Rstest', 'MSW', 'Storybook interaction tests']],
+    ['Testing', ['Playwright', 'Cypress', 'Cucumber', 'BDD', 'E2E testing', 'Jest', 'Rstest', 'MSW', 'Storybook interaction tests']],
     ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']],
     ['AI-assisted development', ['Context engineering', 'MCP-based context integration', 'Workspace rules (.cursorrules)']]
   ];
   var jobs = [
     ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared component library and design system (owned by a separate team), including helping migrate it from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]].'],
-    ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company\'s frontend project from scratch with [[React]], [[TypeScript]], [[Material UI]] and [[Redux Toolkit]], and wrote end-to-end (E2E) tests.'],
+    ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company\'s frontend project from scratch with [[React]], [[TypeScript]], [[Material UI]] and [[Redux Toolkit]]. Built [[E2E testing|end-to-end (E2E) testing]] infrastructure with [[Cypress]] and [[Cucumber]] ([[BDD]]) for the QA team and taught them how to use it.'],
     ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Led the migration from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]] and the adoption of React Hooks, including training the team. Designed reusable UI [[Design systems|component libraries]] used across multiple delivery teams and built responsive mobile UI with Bootstrap.'],
     ['Jun 2015 – Jun 2018', 'Senior Frontend Engineer', 'Pyramid Analytics', 'Developed high-performance client-side BI interfaces with [[React]] and [[HTML5]], managing state for large data sets.'],
     ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Built enterprise financial web applications (frontend and server integration).', 'Tech stack: ASP.NET MVC, Oracle / PL/SQL'],
     ['Jan 2010 – Jan 2011', 'Full Stack Engineer', 'Bank Leumi (via Ness Technologies)', 'Built responsive mobile UI.', 'Tech stack: ASP.NET Web Forms, Entity Framework, SQL Server'],
     ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', null, 'Tech stack: WinForms with C#, SQL Server Compact.'],
-    ['', 'Additional technical experience', '', 'Tools and technologies: [[CSS]], [[Zustand]], [[TanStack Table]], [[Tailwind CSS]], [[Nx Monorepo]], [[Rspack]], [[Webpack]], [[Cypress]], [[Jest]], [[MSW]].', 'AI-assisted development: [[Context engineering]], [[MCP-based context integration]], [[Workspace rules (.cursorrules)]].']
+    ['', 'Additional technical experience', '', 'Tools and technologies: [[CSS]], [[Zustand]], [[TanStack Table]], [[Tailwind CSS]], [[Nx Monorepo]], [[Rspack]], [[Webpack]], [[Jest]], [[MSW]].', 'AI-assisted development: [[Context engineering]], [[MCP-based context integration]], [[Workspace rules (.cursorrules)]].']
   ];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -251,6 +251,8 @@ body{overflow-x:clip}
     'CI/CD': 'https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment',
     'Playwright': 'https://playwright.dev',
     'Cypress': 'https://www.cypress.io',
+    'Cucumber': 'https://cucumber.io',
+    'BDD': 'https://cucumber.io/docs/bdd/',
     'Jest': 'https://jestjs.io',
     'Rstest': 'https://rstest.rs',
     'MSW': 'https://mswjs.io',
@@ -268,7 +270,8 @@ body{overflow-x:clip}
     'REST APIs': { j: 0, c: 1 },
     'Rstest': { j: 0, c: 2 },
     'CSS': { j: 7 }, 'Zustand': { j: 7 }, 'TanStack Table': { j: 7 }, 'Tailwind CSS': { j: 7 },
-    'Nx Monorepo': { j: 7 }, 'Rspack': { j: 7 }, 'Webpack': { j: 7 }, 'Cypress': { j: 7 }, 'Jest': { j: 7 }, 'MSW': { j: 7 },
+    'Nx Monorepo': { j: 7 }, 'Rspack': { j: 7 }, 'Webpack': { j: 7 }, 'Jest': { j: 7 }, 'MSW': { j: 7 },
+    'Cypress': { j: 1 }, 'Cucumber': { j: 1 }, 'BDD': { j: 1 }, 'E2E testing': { j: 1 },
     'Context engineering': { j: 7 }, 'MCP-based context integration': { j: 7 }, 'Workspace rules (.cursorrules)': { j: 7 }
   };
   // Where each skill was used, taken from the CV.
@@ -288,6 +291,10 @@ body{overflow-x:clip}
     'CI/CD': 'XM Cyber, AI-assisted CI/CD tooling',
     'Redux Toolkit': 'Foretellix',
     'Material UI': 'Foretellix',
+    'Cypress': 'Foretellix, E2E testing infrastructure for the QA team',
+    'Cucumber': 'Foretellix, BDD-powered E2E testing',
+    'BDD': 'Foretellix, Cucumber-powered E2E testing',
+    'E2E testing': 'Foretellix (Cypress and Cucumber BDD infrastructure) and XM Cyber (Playwright)',
 'HTML5': 'Pyramid Analytics, BI interfaces',
     'REST APIs': 'XM Cyber, Nest.js BFF layer',
     'Rstest': 'XM Cyber, testing and quality',
