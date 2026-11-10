@@ -310,12 +310,12 @@ body{overflow-x:clip}
     var w = el('div', 'tags');
     list.forEach(function (t) {
       var u = LINKS[t], e, tg = internal && TARGETS[t];
-      if (tg) {
+      if (internal) {
         e = el('a', null, t); e.href = '#experience';
         e.className = 'tip';
         e.setAttribute('data-tip', WHERE[t] ? 'Where I used it: ' + WHERE[t] + '. Click to see it.' : 'Part of my day-to-day toolkit. Click to see my experience.');
         e.setAttribute('aria-label', WHERE[t] ? t + ', used at ' + WHERE[t] + ', opens the related experience' : t + ', opens my experience');
-        e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg, t); });
+        if (tg) e.addEventListener('click', function (ev) { ev.preventDefault(); goTo(tg, t); });
       } else if (u) {
         var host = u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
         e = el('a', null, t); e.href = u; e.target = '_blank'; e.rel = 'noopener noreferrer'; e.title = host;
