@@ -133,6 +133,13 @@ body{overflow-x:clip}
 .contact-in h2 span{color:var(--accent)}
 .foot{padding-top:64px;font-size:14px;color:#8A908A}
 @media (max-width:640px){.plus{display:none}.hero-in{padding-top:72px;padding-bottom:80px}.strip .lbl{flex-basis:100%;border-right:0;border-bottom:1px solid var(--line)}}
+
+.combined-backend{flex-basis:100%}
+.backend-flow{line-height:2.5}
+.backend-flow .runin-label{display:inline-block;white-space:nowrap;font-size:18px;font-weight:500;margin-right:8px}
+@media(max-width:640px){.backend-flow{line-height:2}.backend-flow .runin-label{font-size:16px;letter-spacing:-.02em;margin-right:4px}}
+.backend-flow .tags{display:contents}
+.backend-flow .tags a,.backend-flow .tags span{display:inline-block;margin:4px 6px 4px 0;line-height:1.4}
 </style>
 </head>
 <body>
@@ -380,7 +387,25 @@ body{overflow-x:clip}
   }
 
   var g = document.getElementById('groups');
-  groups.forEach(function (x) { var d = el('div', 'group'); d.appendChild(el('h3', null, x[0])); d.appendChild(tags(x[1], true)); g.appendChild(d); });
+  groups.forEach(function (x, index) {
+    if (x[0] === 'DevOps, Cloud & Databases') return;
+    var d = el('div', 'group');
+    if (x[0] === 'Backend and integration') {
+      d.classList.add('combined-backend');
+      var flow = el('div', 'backend-flow');
+      flow.appendChild(el('span', 'runin-label', x[0] + ':'));
+      flow.appendChild(tags(x[1], true));
+      var next = groups[index + 1];
+      flow.appendChild(document.createTextNode(' '));
+      flow.appendChild(el('span', 'runin-label', next[0] + ':'));
+      flow.appendChild(tags(next[1], true));
+      d.appendChild(flow);
+    } else {
+      d.appendChild(el('h3', null, x[0]));
+      d.appendChild(tags(x[1], true));
+    }
+    g.appendChild(d);
+  });
 
   var j = document.getElementById('jobs');
   jobs.forEach(function (x, i) {
