@@ -207,25 +207,88 @@ body{overflow-x:clip}
 (function () {
   var projects = [
     { job: 0, title: 'CSPM micro-frontends', name: 'XM Cyber: CSPM micro-frontends', problem: 'As the sole frontend engineer, built the UI of a Cloud Security Posture Management product from scratch and owned frontend architecture, delivery and quality. Designed [[Micro-Frontends|micro-frontend]] applications with [[React]], [[TypeScript]] and [[Module Federation]] for complex cybersecurity dashboards.', result: 'Separate product areas are developed and delivered independently.', stack: ['React', 'TypeScript', 'Module Federation', 'Micro-Frontends'] },
-    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built Backend-for-Frontend layers on [[Node.js]] and [[Nest.js (BFF)|Nest.js]] that aggregate microservice [[REST APIs|APIs]], and optimized data fetching on the client with [[TanStack Query]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
+    { job: 0, title: 'Nest.js BFF layer', name: 'XM Cyber: Nest.js BFF layer', problem: 'Built a production [[Node.js]]/[[Nest.js (BFF)|Nest.js]] BFF (Backend-for-Frontend) integrating a Java service, filtering and reducing response data for the UI; optimized data fetching with [[TanStack Query]].', also: 'Tech stack: [[Node.js]], [[Nest.js (BFF)|Nest.js]], [[REST APIs]].', result: 'One consistent API layer for the frontend, with optimized data fetching.', stack: ['Nest.js (BFF)', 'Node.js', 'TanStack Query'] },
     { job: 0, title: 'Testing and quality', name: 'XM Cyber: testing and quality', problem: 'Implemented an AI testing agent for visual screenshot testing using [[Playwright]] component tests, [[Storybook]] [[Storybook interaction tests|play functions]] and [[Rstest]], and wrote [[E2E testing|end-to-end (E2E) tests]] with [[Playwright]]. Also built AI-assisted tooling that monitors [[CI/CD]], reports errors and auto-fixes them. Created the [[Docker (CI/CD)|Dockerfiles]] used in [[CI/CD]], adapted project [[CI/CD]] infrastructure, configured [[Docker (CI/CD)|Docker]] images, managed versions with DevOps and debugged using container logs in [[K9s (container logs)|K9s]] and [[AWS (container logs)|AWS EC2]] via SSH.', result: 'Before the Playwright and visual tests, UI regressions reached QA; now they’re caught in CI.', stack: ['Playwright', 'Storybook', 'Storybook interaction tests', 'CI/CD'] },
     { job: 2, title: 'JavaScript to TypeScript', name: 'Bancor: JavaScript to TypeScript', problem: 'Led the migration of legacy JavaScript codebases to TypeScript and the adoption of React Hooks, including training the team. Designed reusable UI component libraries used across multiple delivery teams.', result: 'Improved code stability and shared components across teams.', stack: ['TypeScript', 'JavaScript (ES6+)', 'Design systems'] },
-    { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance BI interfaces with React, including client-side state management for large data sets.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
+    { job: 3, title: 'BI interfaces', name: 'Pyramid Analytics: BI interfaces', problem: 'Developed high-performance React BI interfaces with client-side state management for large data sets; improved responsiveness by filtering heavy, low-value response data.', result: 'High-performance interfaces that stay responsive on large data sets.', stack: ['React', 'HTML5', 'State management'] }
   ];
   var groups = [
-    ['Frontend', ['React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS', 'Redux Toolkit', 'Zustand', 'TanStack Query', 'TanStack Table', 'Material UI', 'Tailwind CSS']],
-    ['Architecture and tooling', ['Micro-Frontends', 'Module Federation', 'Nx Monorepo', 'Rspack', 'Webpack', 'Storybook', 'Design systems', 'CI/CD']],
-    ['Testing', ['Playwright', 'Cypress', 'Cucumber', 'BDD', 'E2E testing', 'Jest', 'Rstest', 'MSW', 'Storybook interaction tests']],
-    ['Backend and integration', ['Node.js', 'Nest.js (BFF)', 'REST APIs']],
-    ['DevOps, Cloud & Databases', ['Docker (CI/CD)', 'AWS (container logs)', 'K9s (container logs)', 'SQL Server', 'Oracle (PL/SQL)']],
-    ['AI-assisted development', ['Context engineering', 'MCP-based context integration', 'Workspace rules (.cursorrules)']]
-  ];
+  [
+    "Frontend",
+    [
+      "React",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS",
+      "Redux Toolkit",
+      "Zustand",
+      "TanStack Query",
+      "TanStack Table",
+      "Material UI",
+      "Tailwind CSS"
+    ]
+  ],
+  [
+    "Backend services & Databases",
+    [
+      "Node.js",
+      "Nest.js (BFF)",
+      "REST APIs",
+      "SQL Server",
+      "Oracle (PL/SQL)"
+    ]
+  ],
+  [
+    "Architecture & Tooling",
+    [
+      "Micro-Frontends",
+      "Module Federation",
+      "Nx Monorepo",
+      "Rspack",
+      "Webpack",
+      "Storybook",
+      "Design systems",
+      "CI/CD"
+    ]
+  ],
+  [
+    "Testing",
+    [
+      "Playwright",
+      "Cypress",
+      "Cucumber",
+      "BDD",
+      "E2E testing",
+      "Jest",
+      "Rstest",
+      "MSW",
+      "Storybook interaction tests"
+    ]
+  ],
+  [
+    "DevOps & Cloud",
+    [
+      "Docker (CI/CD)",
+      "AWS (container logs)",
+      "K9s (container logs)"
+    ]
+  ],
+  [
+    "AI agents & AI-assisted development",
+    [
+      "Context engineering",
+      "MCP-based context integration",
+      "Workspace rules (.cursorrules)"
+    ]
+  ]
+];
   var jobs = [
     ['Jan 2024 – Present', 'Senior Full Stack Engineer', 'XM Cyber', 'Sole frontend engineer on a CSPM product: built the UI from scratch and owned frontend architecture, delivery and quality, working daily with a backend engineer, a product manager and a designer. Contributed to the shared component library and design system (owned by a separate team), including helping migrate it from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]].'],
     ['Nov 2019 – Nov 2023', 'Front End Infrastructure Engineer', 'Foretellix', 'Built the company\'s frontend project from scratch with [[React]], [[TypeScript]], [[Material UI]] and [[Redux Toolkit]]. Built [[E2E testing|end-to-end (E2E) testing]] infrastructure with [[Cypress]] and [[Cucumber]] ([[BDD]]) for the QA team and taught them how to use it.'],
-    ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Led the migration from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]] and the adoption of React Hooks, including training the team. Designed reusable UI [[Design systems|component libraries]] used across multiple delivery teams and built responsive mobile UI with Bootstrap.'],
-    ['Jun 2015 – Jun 2018', 'Senior Frontend Engineer', 'Pyramid Analytics', 'Developed high-performance BI interfaces with [[React]], including client-side state management for large data sets.'],
-    ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Built enterprise financial web applications (frontend and server integration).', 'Tech stack: ASP.NET MVC, [[Oracle (PL/SQL)]]'],
+    ['Jun 2018 – Nov 2019', 'Front End Infrastructure Engineer', 'Bancor', 'Led the migration from [[JavaScript (ES6+)|JavaScript]] to [[TypeScript]] and the adoption of React Hooks, including training the team. Conducted peer code reviews. Designed reusable UI [[Design systems|component libraries]] used across multiple delivery teams and built responsive mobile UI with Bootstrap.'],
+    ['Jun 2015 – Jun 2018', 'Senior Frontend Engineer', 'Pyramid Analytics', 'Developed high-performance [[React]] BI interfaces with client-side state management for large data sets; improved responsiveness by filtering heavy, low-value response data.'],
+    ['Jan 2011 – May 2015', 'Full Stack Engineer', 'Visa CAL Israel', 'Developed enterprise financial web applications with frontend/server integration.', 'Tech stack: ASP.NET MVC, [[Oracle (PL/SQL)]]'],
     ['Jan 2010 – Jan 2011', 'Full Stack Engineer', 'Bank Leumi (via Ness Technologies)', 'Built responsive mobile UI.', 'Tech stack: ASP.NET Web Forms, Entity Framework, [[SQL Server]]'],
     ['Jan 2009 – Jan 2010', 'Software Engineer', 'Taldor', null, 'Tech stack: WinForms with C#, SQL Server Compact.'],
     ['', 'Additional technical experience', '', 'Tools and technologies: [[CSS]], [[Zustand]], [[TanStack Table]], [[Tailwind CSS]], [[Nx Monorepo]], [[Rspack]], [[Webpack]], [[Jest]], [[MSW]], [[HTML5]].', 'AI-assisted development: [[Context engineering]], [[MCP-based context integration]], [[Workspace rules (.cursorrules)]].']
@@ -386,27 +449,6 @@ body{overflow-x:clip}
     a.onfinish = a.oncancel = function () { d.open = wantOpen; d.style.overflow = ''; d._anim = null; };
   }
 
-  var g = document.getElementById('groups');
-  groups.forEach(function (x, index) {
-    if (x[0] === 'DevOps, Cloud & Databases') return;
-    var d = el('div', 'group');
-    if (x[0] === 'Backend and integration') {
-      d.classList.add('combined-backend');
-      var flow = el('div', 'backend-flow');
-      flow.appendChild(el('span', 'runin-label', x[0] + ':'));
-      flow.appendChild(tags(x[1], true));
-      var next = groups[index + 1];
-      flow.appendChild(document.createTextNode(' '));
-      flow.appendChild(el('span', 'runin-label', next[0] + ':'));
-      flow.appendChild(tags(next[1], true));
-      d.appendChild(flow);
-    } else {
-      d.appendChild(el('h3', null, x[0]));
-      d.appendChild(tags(x[1], true));
-    }
-    g.appendChild(d);
-  });
-
   var j = document.getElementById('jobs');
   jobs.forEach(function (x, i) {
     var row = el('div', 'job'); row.appendChild(el('div', 'd', x[0]));
@@ -429,6 +471,17 @@ body{overflow-x:clip}
       var one = el('div', 'inline'); one.appendChild(resultLine(cs[0])); b.appendChild(one);
     }
     row.appendChild(b); j.appendChild(row);
+  });
+
+  var experienceSkills = new Set(Array.prototype.map.call(document.querySelectorAll('#experience [data-skill]'), function (chip) { return chip.getAttribute('data-skill'); }));
+  var g = document.getElementById('groups');
+  groups.forEach(function (x) {
+    var skills = x[1].filter(function (skill) { return experienceSkills.has(skill); });
+    if (!skills.length) return;
+    var d = el('div', 'group');
+    d.appendChild(el('h3', null, x[0]));
+    d.appendChild(tags(skills, true));
+    g.appendChild(d);
   });
 
   var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
